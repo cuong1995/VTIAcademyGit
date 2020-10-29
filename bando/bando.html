@@ -1,0 +1,70 @@
+﻿<ion-header>
+    <ion-navbar>
+        <ion-title *ngIf="platform.is('ios')">Vị trí</ion-title>
+        <button *ngIf="platform.is('ios')" (click)="dismissPH()" class="back-button disable-hover bar-button bar-button-ios back-button-ios bar-button-default bar-button-default-ios show-back-button" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-ios"><span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-ios" aria-label="arrow back" ng-reflect-name="ios-arrow-back"></ion-icon><span class="back-button-text back-button-text-ios" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-ios"></span></span><div class="button-effect"></div></button>
+        <button *ngIf="platform.is('android')" (click)="dismissPH()" class="back-button disable-hover bar-button bar-button-md back-button-md bar-button-default bar-button-default-md show-back-button" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-md"><span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-md" aria-label="arrow back" ng-reflect-name="md-arrow-back"></ion-icon><span class="back-button-text back-button-text-md" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-md"></span></span><div class="button-effect"></div></button>
+
+        <button ion-button clear style="color:white" *ngIf="platform.is('android')">
+
+            <ion-title>Vị trí </ion-title>
+        </button>
+
+        
+        <ion-buttons end>
+            <button full ion-button icon-left color="royal" (click)="getLocation()" *ngIf="checkpoint || addNew == true">
+                <ion-icon ios="ios-send" md="md-send" style="margin-bottom: 3px;"></ion-icon>
+                <div>Lưu</div>
+            </button>
+            <button full ion-button icon-left color="royal" (click)="setLocationTarget()" *ngIf="target && target.update_Target && target.update_Target == true">
+                <ion-icon ios="ios-send" md="md-send" style="margin-bottom: 3px;"></ion-icon>
+                <div>Lưu</div>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+<ion-content #mapcontent class="map-content" scroll="false">
+    <div id="mapdetail1" class="map">
+        <div class="map-marker-centered"></div>
+        <ion-fab right bottom>
+            <!-- <button ion-fab mini style="background-color: rgba(255, 255, 255, 0.6);" >
+                 <ion-icon style="color: #666666" name="md-map"></ion-icon>
+             </button>-->
+            <button (click)="geoFindMe()" ion-fab mini style="background-color: rgba(255, 255, 255, 0.6);">
+                <ion-icon style="color: #666666" name="locate"></ion-icon>
+            </button>
+        </ion-fab>
+    </div>
+</ion-content>
+<!--<ion-footer class="footer">
+
+    <ion-toolbar>
+        <ion-row>
+            <ion-col text-center>
+                <ion-buttons>
+                    <button full ion-button icon-left style="background-color:royal" (click)="dismissPH()">
+                        <ion-icon ios="ios-refresh" md="md-refresh" style="margin-bottom: 3px;"></ion-icon>
+                        <div>Quay lại</div>
+                    </button>
+                </ion-buttons>
+            </ion-col>            
+
+            <ion-col text-center *ngIf="checkpoint || addNew == true">
+                <ion-buttons>
+                    <button full ion-button icon-left color="royal" (click)="getLocation()">
+                        <ion-icon ios="ios-send" md="md-send" style="margin-bottom: 3px;"></ion-icon>
+                        <div>Lưu vị trí</div>
+                    </button>
+                </ion-buttons>
+            </ion-col>
+            <ion-col text-center *ngIf="target && target.update_Target && target.update_Target == true">
+                <ion-buttons>
+                    <button full ion-button icon-left color="royal" (click)="setLocationTarget()">
+                        <ion-icon ios="ios-send" md="md-send" style="margin-bottom: 3px;"></ion-icon>
+                        <div>Cập nhật vị trí</div>
+                    </button>
+                </ion-buttons>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>-->
